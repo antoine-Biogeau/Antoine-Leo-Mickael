@@ -1,1 +1,3 @@
-#jeu
+import pygame
+pygame.init()
+

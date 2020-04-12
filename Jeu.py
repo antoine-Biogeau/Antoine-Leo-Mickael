@@ -4,7 +4,7 @@ from Chauve_souris import Chauve_souris
 
 
 #Création de la fenêtre :
-
+joueur = Joueur()
 pygame.display.set_caption("test")
 ecran = pygame.display.set_mode((1000, 800))
 
@@ -14,6 +14,10 @@ bg = pygame.image.load("fond.png")
 #game = pygame.Game()
 Chauve_souris = Chauve_souris()
 
+perso = pygame.image.load("assets/Untitled1.png").convert_alpha()
+position_perso = perso.get_rect()
+pygame.key.set_repeat(400, 30)
+fenetre.blit(perso,position_perso)
 running = True
 
 #Boucle Infinie
@@ -32,6 +36,19 @@ while running:
             running = False
             pygame.quit()
             print("jeu fermé")
+        elif event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_d:
+                position_perso = position_perso.move(0, 3)
+        elif event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_q:
+                position_perso = position_perso.move(0, -3)
+        elif event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_z:
+                position_perso = position_perso.move(3, 0)
+        elif event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_q:
+                position_perso = position_perso.move(-3, 0)
+
 
     #Mouvements Monstres
 
